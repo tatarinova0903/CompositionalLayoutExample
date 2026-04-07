@@ -45,23 +45,23 @@ extension Array where Element == GridViewController.Model {
                 items: [
                     .bestArticle(
                         GridViewController.Model.Article(
-                            title: "1",
-                            subtitle: "1",
-                            image: UIImage(systemName: "heart.fill")!
+                            title: "Match of the Week",
+                            subtitle: "An instant classic with a dramatic finish",
+                            image: UIImage(systemName: "trophy.fill")!
                         )
                     ),
                     .popularArticle(
                         GridViewController.Model.Article(
-                            title: "2",
-                            subtitle: "2",
-                            image: UIImage(systemName: "heart.fill")!
+                            title: "Rising Stars to Watch",
+                            subtitle: "New names leading the scoreboard",
+                            image: UIImage(systemName: "star.fill")!
                         )
                     ),
                     .popularArticle(
                         GridViewController.Model.Article(
-                            title: "3",
-                            subtitle: "3",
-                            image: UIImage(systemName: "heart.fill")!
+                            title: "League Highlights",
+                            subtitle: "Top moments from the weekend",
+                            image: UIImage(systemName: "sparkles")!
                         )
                     )
                 ]
@@ -69,28 +69,71 @@ extension Array where Element == GridViewController.Model {
         ),
         .new(
             GridViewController.Model.New(
-                name: "New",
+                name: "Animals",
                 background: .red,
                 items: [
                     .article(
                         GridViewController.Model.Article(
-                            title: "1",
-                            subtitle: "1",
-                            image: UIImage(systemName: "heart.fill")!
+                            title: "Wildlife Rescue Stories",
+                            subtitle: "How volunteers help injured animals",
+                            image: UIImage(systemName: "pawprint.fill")!
                         )
                     ),
                     .article(
                         GridViewController.Model.Article(
-                            title: "2",
-                            subtitle: "2",
-                            image: UIImage(systemName: "heart.fill")!
+                            title: "Life in the Rainforest",
+                            subtitle: "The hidden world of canopy creatures",
+                            image: UIImage(systemName: "leaf.fill")!
                         )
                     ),
                     .article(
                         GridViewController.Model.Article(
-                            title: "3",
-                            subtitle: "3",
-                            image: UIImage(systemName: "heart.fill")!
+                            title: "Ocean Giants",
+                            subtitle: "Understanding whales and their migration",
+                            image: UIImage(systemName: "drop.fill")!
+                        )
+                    )
+                ]
+            )
+        ),
+        .new(
+            GridViewController.Model.New(
+                name: "Travel",
+                background: .red,
+                items: [
+                    .article(
+                        GridViewController.Model.Article(
+                            title: "Weekend in Lisbon",
+                            subtitle: "A guide to food, views, and trams",
+                            image: UIImage(systemName: "airplane")!
+                        )
+                    ),
+                    .article(
+                        GridViewController.Model.Article(
+                            title: "Mountain Escape",
+                            subtitle: "Best trails for first-time hikers",
+                            image: UIImage(systemName: "mountain.2.fill")!
+                        )
+                    ),
+                    .article(
+                        GridViewController.Model.Article(
+                            title: "City on Foot",
+                            subtitle: "Walking tours through historic streets",
+                            image: UIImage(systemName: "figure.walk")!
+                        )
+                    ),
+                    .article(
+                        GridViewController.Model.Article(
+                            title: "Island Hopping",
+                            subtitle: "Planning a stress-free ferry route",
+                            image: UIImage(systemName: "ferry.fill")!
+                        )
+                    ),
+                    .article(
+                        GridViewController.Model.Article(
+                            title: "Northern Lights",
+                            subtitle: "When and where to see the aurora",
+                            image: UIImage(systemName: "sparkle")!
                         )
                     )
                 ]
