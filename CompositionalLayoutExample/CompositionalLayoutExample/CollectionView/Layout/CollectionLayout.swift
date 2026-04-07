@@ -1,10 +1,10 @@
 import UIKit
 
-final class SportStatisticCollectionLayout: UICollectionViewCompositionalLayout {
+final class CollectionLayout: UICollectionViewCompositionalLayout {
 
     // MARK: - Internal Types
 
-    typealias DataSource = SportStatisticCollectionDataSource
+    typealias DataSource = CollectionDataSource
     typealias SectionProvider = (Int) -> DataSource.Section?
 
     // MARK: - Internal Init
@@ -60,7 +60,7 @@ final class SportStatisticCollectionLayout: UICollectionViewCompositionalLayout 
 
     // MARK: - Private Types
 
-    private typealias ItemsConstants = SportStatisticCollectionLayoutItemsConstants
+    private typealias ItemsConstants = CommonCollectionLayoutItemsConstants
 
     // MARK: - Private Properties
 
@@ -98,18 +98,5 @@ final class SportStatisticCollectionLayout: UICollectionViewCompositionalLayout 
         custom.zIndex = -1
         custom.color = backgroundColor
         return custom
-    }
-}
-
-// MARK: - CGRect + NSDirectionalEdgeInsets
-
-extension CGRect {
-    fileprivate func expanded(by insets: NSDirectionalEdgeInsets) -> CGRect {
-        CGRect(
-            x: minX - insets.leading,
-            y: minY - insets.top,
-            width: width + insets.leading + insets.trailing,
-            height: height + insets.top + insets.bottom
-        )
     }
 }

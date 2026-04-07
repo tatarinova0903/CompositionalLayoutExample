@@ -1,6 +1,6 @@
 import UIKit
 
-final class SportStatisticSectionHeaderView: UICollectionReusableView {
+final class SectionHeaderView: UICollectionReusableView {
 
     // MARK: - Internal Init
 

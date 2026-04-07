@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  CompositionalLayoutExample
-//
-//  Created by Daria Tatarinova on 07.04.2026.
-//
-
 import UIKit
 
 @main

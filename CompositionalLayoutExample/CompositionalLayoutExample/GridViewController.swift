@@ -2,7 +2,7 @@ import UIKit
 
 final class GridViewController: UIViewController {
 
-    private lazy var collectionViewLayout = SportStatisticCollectionLayout { [weak self] sectionIndex in
+    private lazy var collectionViewLayout = CollectionLayout { [weak self] sectionIndex in
         self?.collectionViewDataSource.sectionIdentifier(for: sectionIndex)
     }
 
@@ -12,9 +12,9 @@ final class GridViewController: UIViewController {
         return collectionView
     }()
 
-    private lazy var collectionViewDataSource = SportStatisticCollectionDataSource(
+    private lazy var collectionViewDataSource = CollectionDataSource(
         collectionView: collectionView,
-        registrationFactory: SportStatisticCollectionRegistrationFactory()
+        registrationFactory: CollectionRegistrationFactory()
     )
 
     override func viewDidLoad() {

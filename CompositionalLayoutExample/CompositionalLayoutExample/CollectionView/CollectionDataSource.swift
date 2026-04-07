@@ -1,9 +1,9 @@
 import UIKit
 import SwiftUI
 
-final class SportStatisticCollectionDataSource: UICollectionViewDiffableDataSource<
-    SportStatisticCollectionDataSource.Section,
-    SportStatisticCollectionDataSource.Item
+final class CollectionDataSource: UICollectionViewDiffableDataSource<
+    CollectionDataSource.Section,
+    CollectionDataSource.Item
 > {
 
     // MARK: - Internal Types
@@ -30,7 +30,7 @@ final class SportStatisticCollectionDataSource: UICollectionViewDiffableDataSour
 
     init(
         collectionView: UICollectionView,
-        registrationFactory: SportStatisticCollectionRegistrationFactory
+        registrationFactory: CollectionRegistrationFactory
     ) {
         let bestArticleCellRegistration = registrationFactory.makeBestArticleCellRegistration()
         let popularArticleCellRegistration = registrationFactory.makePopularArticleCellRegistration()

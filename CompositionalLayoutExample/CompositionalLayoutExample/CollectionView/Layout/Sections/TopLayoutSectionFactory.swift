@@ -43,7 +43,7 @@ enum TopLayoutSectionFactory {
         group.interItemSpacing = .fixed(ItemsConstants.itemSpacing)
 
         // Section
-        let section = SportStatisticCollectionSectionFactory.build(from: group)
+        let section = CollectionSectionFactory.build(from: group)
 
         let sectionBackground = NSCollectionLayoutDecorationItem.background(
             elementKind: SectionBackgroundView.elementKind
@@ -53,5 +53,5 @@ enum TopLayoutSectionFactory {
         return section
     }
 
-    private typealias ItemsConstants = SportStatisticCollectionLayoutItemsConstants
+    private typealias ItemsConstants = CommonCollectionLayoutItemsConstants
 }

@@ -1,6 +1,6 @@
 import UIKit
 
-enum SportStatisticCollectionSectionFactory {
+enum CollectionSectionFactory {
     @MainActor
     static func build(from group: NSCollectionLayoutGroup) -> NSCollectionLayoutSection {
         let section = NSCollectionLayoutSection(group: group)
@@ -31,9 +31,9 @@ enum SportStatisticCollectionSectionFactory {
     }
 }
 
-extension SportStatisticCollectionSectionFactory {
+extension CollectionSectionFactory {
 
-    private typealias ItemsConstants = SportStatisticCollectionLayoutItemsConstants
+    private typealias ItemsConstants = CommonCollectionLayoutItemsConstants
 
     private enum SectionConstants {
         static var sectionHeaderHeight: CGFloat { 28.0 }

@@ -1,12 +1,12 @@
 import UIKit
 
 @MainActor
-struct SportStatisticCollectionRegistrationFactory {
+struct CollectionRegistrationFactory {
 
     // MARK: - Internal Types
 
-    typealias DataSource = SportStatisticCollectionDataSource
-    typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<SportStatisticSectionHeaderView>
+    typealias DataSource = CollectionDataSource
+    typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<SectionHeaderView>
     typealias BestArticleCellRegistration = UICollectionView.CellRegistration<
         UICollectionViewCell,
         ViewState.Article
