@@ -45,10 +45,10 @@ enum TopLayoutSectionFactory {
         // Section
         let section = SportStatisticCollectionSectionFactory.build(from: group)
 
-//        let sectionBackground = NSCollectionLayoutDecorationItem.background(
-//            elementKind: StatisticSectionBackgroundView.elementKind
-//        )
-//        section.decorationItems = [sectionBackground]
+        let sectionBackground = NSCollectionLayoutDecorationItem.background(
+            elementKind: SectionBackgroundView.elementKind
+        )
+        section.decorationItems = [sectionBackground]
 
         return section
     }

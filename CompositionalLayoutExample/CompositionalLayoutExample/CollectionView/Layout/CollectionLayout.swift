@@ -33,10 +33,10 @@ final class SportStatisticCollectionLayout: UICollectionViewCompositionalLayout 
             configuration: configuration
         )
 
-//        register(
-//            StatisticSectionBackgroundView.self,
-//            forDecorationViewOfKind: StatisticSectionBackgroundView.elementKind
-//        )
+        register(
+            SectionBackgroundView.self,
+            forDecorationViewOfKind: SectionBackgroundView.elementKind
+        )
     }
 
     @available(*, unavailable)
@@ -48,16 +48,15 @@ final class SportStatisticCollectionLayout: UICollectionViewCompositionalLayout 
 
     // MARK: - Section Background
 
-//    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-//        let expandedRect = rect.expanded(by: Constants.backgroundExpansion)
-//        let attributes = super.layoutAttributesForElements(in: expandedRect)
-//        return attributes?.map { attr in
-//            guard attr.representedElementCategory == .decorationView else {
-//                return attr
-//            }
-//            return getDecorationAttributes(from: attr)
-//        }
-//    }
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        let attributes = super.layoutAttributesForElements(in: rect)
+        return attributes?.map { attr in
+            guard attr.representedElementCategory == .decorationView else {
+                return attr
+            }
+            return getDecorationAttributes(from: attr)
+        }
+    }
 
     // MARK: - Private Types
 
@@ -69,40 +68,37 @@ final class SportStatisticCollectionLayout: UICollectionViewCompositionalLayout 
 
     // MARK: - Private Methods
 
-//    private func getDecorationAttributes(
-//        from attr: UICollectionViewLayoutAttributes
-//    ) -> UICollectionViewLayoutAttributes {
-//        guard let elementKind = attr.representedElementKind else {
-//            return attr
-//        }
-//        guard let section = sectionProvider(attr.indexPath.section) else {
-//            return attr
-//        }
-//        switch (elementKind, section.type) {
-//        case (StatisticSectionBackgroundView.elementKind, .statistic(let background)):
-//            return getAttributesForStatisticSection(from: attr, with: background)
-//        default:
-//            return attr
-//        }
-//    }
-//
-//    private func getAttributesForStatisticSection(
-//        from attr: UICollectionViewLayoutAttributes,
-//        with background: DataSource.Section.SectionType.Background
-//    ) -> StatisticSectionBackgroundLayoutAttributes {
-//        let custom = StatisticSectionBackgroundLayoutAttributes(
-//            forDecorationViewOfKind: StatisticSectionBackgroundView.elementKind,
-//            with: attr.indexPath
-//        )
-//        let expandedFrame = attr.frame.expanded(by: Constants.backgroundExpansion)
-//        custom.frame = expandedFrame
-//        custom.zIndex = -1
-//        custom.configure(
-//            firstColor: UIColor(background.firstTeamColor),
-//            secondColor: UIColor(background.secondTeamColor)
-//        )
-//        return custom
-//    }
+    private func getDecorationAttributes(
+        from attr: UICollectionViewLayoutAttributes
+    ) -> UICollectionViewLayoutAttributes {
+        guard let elementKind = attr.representedElementKind else {
+            return attr
+        }
+        guard let section = sectionProvider(attr.indexPath.section) else {
+            return attr
+        }
+        switch (elementKind, section.type) {
+        case (SectionBackgroundView.elementKind, .top(let background)),
+            (SectionBackgroundView.elementKind, .new(let background)):
+            return getAttributesForStatisticSection(from: attr, with: background)
+        default:
+            return attr
+        }
+    }
+
+    private func getAttributesForStatisticSection(
+        from attr: UICollectionViewLayoutAttributes,
+        with backgroundColor: UIColor
+    ) -> SectionBackgroundLayoutAttributes {
+        let custom = SectionBackgroundLayoutAttributes(
+            forDecorationViewOfKind: SectionBackgroundView.elementKind,
+            with: attr.indexPath
+        )
+        custom.frame = attr.frame
+        custom.zIndex = -1
+        custom.color = backgroundColor
+        return custom
+    }
 }
 
 // MARK: - CGRect + NSDirectionalEdgeInsets

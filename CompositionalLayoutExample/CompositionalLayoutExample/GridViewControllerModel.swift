@@ -41,7 +41,7 @@ extension Array where Element == GridViewController.Model {
         .top(
             GridViewController.Model.Top(
                 name: "Top",
-                background: .red,
+                background: .magenta,
                 items: [
                     .bestArticle(
                         GridViewController.Model.Article(
@@ -70,7 +70,7 @@ extension Array where Element == GridViewController.Model {
         .new(
             GridViewController.Model.New(
                 name: "Animals",
-                background: .red,
+                background: .green,
                 items: [
                     .article(
                         GridViewController.Model.Article(
@@ -99,7 +99,7 @@ extension Array where Element == GridViewController.Model {
         .new(
             GridViewController.Model.New(
                 name: "Travel",
-                background: .red,
+                background: .yellow,
                 items: [
                     .article(
                         GridViewController.Model.Article(

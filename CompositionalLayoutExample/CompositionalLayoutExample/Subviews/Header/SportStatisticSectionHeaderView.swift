@@ -25,8 +25,6 @@ final class SportStatisticSectionHeaderView: UICollectionReusableView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.setContentCompressionResistancePriority(.required, for: .vertical)
-        label.setContentHuggingPriority(.required, for: .vertical)
         label.numberOfLines = 1
         label.font = .systemFont(ofSize: 16)
         return label

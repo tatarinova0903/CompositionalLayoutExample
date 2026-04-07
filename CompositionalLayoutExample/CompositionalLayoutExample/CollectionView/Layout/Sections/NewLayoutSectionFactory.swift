@@ -3,11 +3,11 @@ import UIKit
 enum NewLayoutSectionFactory {
     @MainActor
     static func build() -> NSCollectionLayoutSection {
-        let leaderItemSize = NSCollectionLayoutSize(
+        let itemSize = NSCollectionLayoutSize(
             widthDimension: .absolute(ItemsConstants.itemWidth),
             heightDimension: .fractionalHeight(1.0 / 3.0)
         )
-        let leaderItem = NSCollectionLayoutItem(layoutSize: leaderItemSize)
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .absolute(ItemsConstants.itemWidth),
@@ -15,12 +15,17 @@ enum NewLayoutSectionFactory {
         )
         let group = NSCollectionLayoutGroup.vertical(
             layoutSize: groupSize,
-            repeatingSubitem: leaderItem,
+            repeatingSubitem: item,
             count: 3
         )
         group.interItemSpacing = .fixed(ItemsConstants.itemSpacing)
 
         let section = SportStatisticCollectionSectionFactory.build(from: group)
+
+        let sectionBackground = NSCollectionLayoutDecorationItem.background(
+            elementKind: SectionBackgroundView.elementKind
+        )
+        section.decorationItems = [sectionBackground]
 
         return section
     }
