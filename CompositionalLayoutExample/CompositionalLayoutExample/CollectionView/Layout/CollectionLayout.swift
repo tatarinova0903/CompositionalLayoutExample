@@ -1,10 +1,3 @@
-//
-//  CollectionLayout.swift
-//  CompositionalLayoutExample
-//
-//  Created by Daria Tatarinova on 07.04.2026.
-//
-
 import UIKit
 
 final class SportStatisticCollectionLayout: UICollectionViewCompositionalLayout {
@@ -33,10 +26,6 @@ final class SportStatisticCollectionLayout: UICollectionViewCompositionalLayout 
                     return StatisticLayoutSectionFactory.build()
                 case .leaders:
                     return LeadersLayoutSectionFactory.build()
-                case .hockeyTeam:
-                    return HockeyTeamLayoutSectionFactory.build()
-                case .footballTeam:
-                    return FootballTeamLayoutSectionFactory.build()
                 case .none:
                     return nil
                 }
@@ -56,33 +45,6 @@ final class SportStatisticCollectionLayout: UICollectionViewCompositionalLayout 
     }
 
     // MARK: - Internal Methods
-
-    // MARK: - Paging
-
-    override func targetContentOffset(
-        forProposedContentOffset proposedContentOffset: CGPoint,
-        withScrollingVelocity velocity: CGPoint
-    ) -> CGPoint {
-        guard let pageInset = collectionView?.contentInset.left else {
-            return proposedContentOffset
-        }
-        let proposedOffsetX = proposedContentOffset.x
-        let targetContentOffsetX: CGFloat
-        let pageWidth = ItemsConstants.itemWidth + configuration.interSectionSpacing
-        let proposedPage = (proposedOffsetX - pageInset) / pageWidth
-        let leadingPageOffset = floor(proposedPage) * pageWidth - pageInset
-        let trailingPageOffset = ceil(proposedPage) * pageWidth - pageInset
-        if velocity.x == 0 {
-            if abs(leadingPageOffset - proposedOffsetX) < abs(trailingPageOffset - proposedOffsetX) {
-                targetContentOffsetX = leadingPageOffset
-            } else {
-                targetContentOffsetX = trailingPageOffset
-            }
-        } else {
-            targetContentOffsetX = velocity.x < 0 ? leadingPageOffset : trailingPageOffset
-        }
-        return CGPoint(x: targetContentOffsetX, y: proposedContentOffset.y)
-    }
 
     // MARK: - Section Background
 

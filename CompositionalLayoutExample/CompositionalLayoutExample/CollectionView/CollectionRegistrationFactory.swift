@@ -1,11 +1,3 @@
-//
-//  CollectionRegistrationFactory.swift
-//  CompositionalLayoutExample
-//
-//  Created by Daria Tatarinova on 07.04.2026.
-//
-
-import Foundation
 import UIKit
 
 @MainActor
@@ -26,22 +18,6 @@ struct SportStatisticCollectionRegistrationFactory {
     typealias LiveLeaderCellRegistration = UICollectionView.CellRegistration<
         UICollectionViewCell,
         ViewState.Statistic.Item.LiveLeader
-    >
-    typealias HockeyPlayersListCellRegistration = UICollectionView.CellRegistration<
-        UICollectionViewCell,
-        ViewState.HockeyTeam.Item.HockeyPlayersList
-    >
-    typealias HockeyPlayersListRelatedCellRegistration = UICollectionView.CellRegistration<
-        UICollectionViewCell,
-        ViewState.HockeyTeam.Item.HockeyPlayersListRelated
-    >
-    typealias FootballPlayersListCellRegistration = UICollectionView.CellRegistration<
-        UICollectionViewCell,
-        ViewState.FootballTeam.Item.FootballPlayersList
-    >
-    typealias FootballPlacementSchemeCellRegistration = UICollectionView.CellRegistration<
-        UICollectionViewCell,
-        ViewState.FootballTeam.Item.FootballPlacementScheme
     >
     typealias ViewState = GridViewController.Model
 
@@ -73,30 +49,6 @@ struct SportStatisticCollectionRegistrationFactory {
     func makeLeaderCellRegistration() -> LeaderCellRegistration {
         return LeaderCellRegistration { cell, _, item in
             cell.backgroundColor = .yellow
-        }
-    }
-
-    func makeHockeyPlayersListCellRegistration() -> HockeyPlayersListCellRegistration {
-        return HockeyPlayersListCellRegistration { cell, _, item in
-            cell.backgroundColor = .blue
-        }
-    }
-
-    func makeHockeyPlayersListRelatedCellRegistration() -> HockeyPlayersListRelatedCellRegistration {
-        return HockeyPlayersListRelatedCellRegistration { cell, _, item in
-            cell.backgroundColor = .brown
-        }
-    }
-
-    func makeFootballPlayersListCellRegistration() -> FootballPlayersListCellRegistration {
-        return FootballPlayersListCellRegistration { cell, _, item in
-            cell.backgroundColor = .gray
-        }
-    }
-
-    func makeFootballPlacementSchemeCellRegistration() -> FootballPlacementSchemeCellRegistration {
-        return FootballPlacementSchemeCellRegistration { cell, _, item in
-            cell.backgroundColor = .magenta
         }
     }
 

@@ -1,10 +1,3 @@
-//
-//  CollectionDataSource.swift
-//  CompositionalLayoutExample
-//
-//  Created by Daria Tatarinova on 07.04.2026.
-//
-
 import UIKit
 import SwiftUI
 
@@ -26,8 +19,6 @@ final class SportStatisticCollectionDataSource: UICollectionViewDiffableDataSour
 
             case statistic(Background)
             case leaders
-            case footballTeam
-            case hockeyTeam
         }
 
         let type: SectionType
@@ -38,10 +29,6 @@ final class SportStatisticCollectionDataSource: UICollectionViewDiffableDataSour
         case compare(ViewState.Statistic.Item.Compare)
         case liveLeader(ViewState.Statistic.Item.LiveLeader)
         case leader(ViewState.Leaders.Item.Leader)
-        case footballPlayersList(ViewState.FootballTeam.Item.FootballPlayersList)
-        case footballPlacementScheme(ViewState.FootballTeam.Item.FootballPlacementScheme)
-        case hockeyPlayersList(ViewState.HockeyTeam.Item.HockeyPlayersList)
-        case hockeyPlayersListRelated(ViewState.HockeyTeam.Item.HockeyPlayersListRelated)
     }
 
     // MARK: - Internal Init
@@ -53,10 +40,6 @@ final class SportStatisticCollectionDataSource: UICollectionViewDiffableDataSour
         let compareCellRegistration = registrationFactory.makeCompareCellRegistration()
         let liveLeaderCellRegistration = registrationFactory.makeLiveLeaderCellRegistration()
         let leaderCellRegistration = registrationFactory.makeLeaderCellRegistration()
-        let hockeyPlayersListCellRegistration = registrationFactory.makeHockeyPlayersListCellRegistration()
-        let hockeyPlayersListRelatedCellRegistration = registrationFactory.makeHockeyPlayersListRelatedCellRegistration()
-        let footballPlayersListCellRegistration = registrationFactory.makeFootballPlayersListCellRegistration()
-        let footballPlacementSchemeCellRegistration = registrationFactory.makeFootballPlacementSchemeCellRegistration()
 
         super.init(
             collectionView: collectionView,
@@ -79,30 +62,6 @@ final class SportStatisticCollectionDataSource: UICollectionViewDiffableDataSour
                         using: leaderCellRegistration,
                         for: indexPath,
                         item: leader
-                    )
-                case .hockeyPlayersList(let hockeyPlayersList):
-                    return collectionView.dequeueConfiguredReusableCell(
-                        using: hockeyPlayersListCellRegistration,
-                        for: indexPath,
-                        item: hockeyPlayersList
-                    )
-                case .hockeyPlayersListRelated(let hockeyPlayersListRelated):
-                    return collectionView.dequeueConfiguredReusableCell(
-                        using: hockeyPlayersListRelatedCellRegistration,
-                        for: indexPath,
-                        item: hockeyPlayersListRelated
-                    )
-                case .footballPlayersList(let footballPlayersList):
-                    return collectionView.dequeueConfiguredReusableCell(
-                        using: footballPlayersListCellRegistration,
-                        for: indexPath,
-                        item: footballPlayersList
-                    )
-                case .footballPlacementScheme(let footballPlacementScheme):
-                    return collectionView.dequeueConfiguredReusableCell(
-                        using: footballPlacementSchemeCellRegistration,
-                        for: indexPath,
-                        item: footballPlacementScheme
                     )
                 }
             }
@@ -138,10 +97,6 @@ final class SportStatisticCollectionDataSource: UICollectionViewDiffableDataSour
                 )
             case .leaders(let leaders):
                 return Section(type: .leaders, name: leaders.name)
-            case .footballTeam(let footballTeam):
-                return Section(type: .footballTeam, name: footballTeam.name)
-            case .hockeyTeam(let hockeyTeam):
-                return Section(type: .hockeyTeam, name: hockeyTeam.name)
             }
         }
         snapshot.appendSections(snapshotSections)
@@ -172,26 +127,6 @@ final class SportStatisticCollectionDataSource: UICollectionViewDiffableDataSour
                     }
                 }
                 snapshot.appendItems(snapshotItems, toSection: Section(type: .leaders, name: leaders.name))
-            case .footballTeam(let footballTeam):
-                let snapshotItems: [Item] = footballTeam.items.map {
-                    switch $0 {
-                    case .footballPlayersList(let footballPlayersList):
-                        return .footballPlayersList(footballPlayersList)
-                    case .footballPlacementScheme(let footballPlacementScheme):
-                        return .footballPlacementScheme(footballPlacementScheme)
-                    }
-                }
-                snapshot.appendItems(snapshotItems, toSection: Section(type: .footballTeam, name: footballTeam.name))
-            case .hockeyTeam(let hockeyTeam):
-                let snapshotItems: [Item] = hockeyTeam.items.map {
-                    switch $0 {
-                    case .hockeyPlayersList(let hockeyPlayersList):
-                        return .hockeyPlayersList(hockeyPlayersList)
-                    case .hockeyPlayersListRelated(let hockeyPlayersListRelated):
-                        return .hockeyPlayersListRelated(hockeyPlayersListRelated)
-                    }
-                }
-                snapshot.appendItems(snapshotItems, toSection: Section(type: .hockeyTeam, name: hockeyTeam.name))
             }
         }
 

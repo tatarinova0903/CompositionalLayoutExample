@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  CompositionalLayoutExample
-//
-//  Created by Daria Tatarinova on 07.04.2026.
-//
-
 import UIKit
 
 final class GridViewController: UIViewController {
@@ -42,7 +35,7 @@ final class GridViewController: UIViewController {
                 .leaders(
                     Model.Leaders(
                         name: "Leaders",
-                        items: [.leader(1), .leader(2), .leader(3)]
+                        items: [.leader(1), .leader(2), .leader(3), .leader(4), .leader(5)]
                     )
                 ),
             ],
@@ -77,7 +70,7 @@ final class GridViewController: UIViewController {
 
 extension GridViewController {
     private enum Layout {
-        static var collectionHeight: CGFloat { 500.0 }
+        static var collectionHeight: CGFloat { 300.0 }
         static var horizontalContentInset: CGFloat { 16.0 }
     }
 }
