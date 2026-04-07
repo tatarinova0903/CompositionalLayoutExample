@@ -1,6 +1,6 @@
 import UIKit
 
-enum LeadersLayoutSectionFactory {
+enum NewLayoutSectionFactory {
     @MainActor
     static func build() -> NSCollectionLayoutSection {
         let leaderItemSize = NSCollectionLayoutSize(

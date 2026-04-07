@@ -22,10 +22,10 @@ final class SportStatisticCollectionLayout: UICollectionViewCompositionalLayout 
             sectionProvider: { sectionIndex, _ in
                 let section = sectionProvider(sectionIndex)
                 switch section?.type {
-                case .statistic:
-                    return StatisticLayoutSectionFactory.build()
-                case .leaders:
-                    return LeadersLayoutSectionFactory.build()
+                case .top:
+                    return TopLayoutSectionFactory.build()
+                case .new:
+                    return NewLayoutSectionFactory.build()
                 case .none:
                     return nil
                 }
@@ -103,17 +103,6 @@ final class SportStatisticCollectionLayout: UICollectionViewCompositionalLayout 
 //        )
 //        return custom
 //    }
-}
-
-extension SportStatisticCollectionLayout {
-    private enum Constants {
-        static let backgroundExpansion = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: ItemsConstants.itemWidth / 2,
-            bottom: 0,
-            trailing: ItemsConstants.itemWidth / 2
-        )
-    }
 }
 
 // MARK: - CGRect + NSDirectionalEdgeInsets

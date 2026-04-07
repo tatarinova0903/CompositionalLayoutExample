@@ -7,17 +7,17 @@ struct SportStatisticCollectionRegistrationFactory {
 
     typealias DataSource = SportStatisticCollectionDataSource
     typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<SportStatisticSectionHeaderView>
-    typealias CompareCellRegistration = UICollectionView.CellRegistration<
+    typealias BestArticleCellRegistration = UICollectionView.CellRegistration<
         UICollectionViewCell,
-        ViewState.Statistic.Item.Compare
+        ViewState.Article
     >
-    typealias LeaderCellRegistration = UICollectionView.CellRegistration<
+    typealias PopularArticleCellRegistration = UICollectionView.CellRegistration<
         UICollectionViewCell,
-        ViewState.Leaders.Item.Leader
+        ViewState.Article
     >
-    typealias LiveLeaderCellRegistration = UICollectionView.CellRegistration<
+    typealias CommonArticleCellRegistration = UICollectionView.CellRegistration<
         UICollectionViewCell,
-        ViewState.Statistic.Item.LiveLeader
+        ViewState.Article
     >
     typealias ViewState = GridViewController.Model
 
@@ -34,21 +34,21 @@ struct SportStatisticCollectionRegistrationFactory {
         }
     }
 
-    func makeCompareCellRegistration() -> CompareCellRegistration {
-        return CompareCellRegistration { cell, _, item in
+    func makeBestArticleCellRegistration() -> BestArticleCellRegistration {
+        return BestArticleCellRegistration { cell, _, item in
             cell.backgroundColor = .red
         }
     }
 
-    func makeLiveLeaderCellRegistration() -> LiveLeaderCellRegistration {
-        return LiveLeaderCellRegistration { cell, _, item in
+    func makePopularArticleCellRegistration() -> PopularArticleCellRegistration {
+        return PopularArticleCellRegistration { cell, _, item in
             cell.backgroundColor = .green
         }
     }
 
-    func makeLeaderCellRegistration() -> LeaderCellRegistration {
-        return LeaderCellRegistration { cell, _, item in
-            cell.backgroundColor = .yellow
+    func makeCommonArticleCellRegistration() -> CommonArticleCellRegistration {
+        return CommonArticleCellRegistration { cell, _, item in
+            cell.backgroundColor = .green
         }
     }
 

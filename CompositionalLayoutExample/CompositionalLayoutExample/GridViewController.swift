@@ -23,24 +23,7 @@ final class GridViewController: UIViewController {
         setupLayout()
         configureCollectionView()
 
-        collectionViewDataSource.apply(
-            [
-                .statistic(
-                    Model.Statistic(
-                        name: "Statistic",
-                        background: Model.Statistic.Background(firstTeamColor: .red, secondTeamColor: .blue),
-                        items: [.compare(1), .liveLeaders(2), .liveLeaders(3)]
-                    )
-                ),
-                .leaders(
-                    Model.Leaders(
-                        name: "Leaders",
-                        items: [.leader(1), .leader(2), .leader(3), .leader(4), .leader(5)]
-                    )
-                ),
-            ],
-            animated: true
-        )
+        collectionViewDataSource.apply(.default, animated: true)
     }
 
     private func setupLayout() {
