@@ -8,17 +8,16 @@ struct CollectionRegistrationFactory {
     typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<SectionHeaderView>
     typealias BestArticleCellRegistration = UICollectionView.CellRegistration<
         UICollectionViewCell,
-        ViewState.Article
+        DataSource.Item.Article
     >
     typealias PopularArticleCellRegistration = UICollectionView.CellRegistration<
         UICollectionViewCell,
-        ViewState.Article
+        DataSource.Item.Article
     >
     typealias RegularArticleCellRegistration = UICollectionView.CellRegistration<
         UICollectionViewCell,
-        ViewState.Article
+        DataSource.Item.Article
     >
-    typealias ViewState = GridViewController.Model
 
     // MARK: - Internal Methods
 
@@ -70,7 +69,7 @@ struct CollectionRegistrationFactory {
 
     private func configureArticleCell(
         _ cell: UICollectionViewCell,
-        with article: ViewState.Article,
+        with article: DataSource.Item.Article,
         showsImage: Bool,
         showsSubtitle: Bool
     ) {

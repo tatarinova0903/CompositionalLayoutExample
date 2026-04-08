@@ -2,12 +2,10 @@ import UIKit
 
 final class CollectionLayout: UICollectionViewCompositionalLayout {
 
-    // MARK: - Internal Types
-
     typealias DataSource = CollectionDataSource
     typealias SectionProvider = (Int) -> DataSource.Section?
 
-    // MARK: - Internal Init
+    private let sectionProvider: SectionProvider
 
     init(
         sectionProvider: @escaping SectionProvider
@@ -16,7 +14,7 @@ final class CollectionLayout: UICollectionViewCompositionalLayout {
 
         let configuration = UICollectionViewCompositionalLayoutConfiguration()
         configuration.scrollDirection = .horizontal
-        configuration.interSectionSpacing = ItemsConstants.itemSpacing
+        configuration.interSectionSpacing = CommonCollectionLayoutItemsConstants.itemSpacing
 
         super.init(
             sectionProvider: { sectionIndex, _ in
@@ -44,8 +42,6 @@ final class CollectionLayout: UICollectionViewCompositionalLayout {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Internal Methods
-
     // MARK: - Section Background
 
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
@@ -57,16 +53,6 @@ final class CollectionLayout: UICollectionViewCompositionalLayout {
             return getDecorationAttributes(from: attr)
         }
     }
-
-    // MARK: - Private Types
-
-    private typealias ItemsConstants = CommonCollectionLayoutItemsConstants
-
-    // MARK: - Private Properties
-
-    private let sectionProvider: SectionProvider
-
-    // MARK: - Private Methods
 
     private func getDecorationAttributes(
         from attr: UICollectionViewLayoutAttributes

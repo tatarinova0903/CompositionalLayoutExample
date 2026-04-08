@@ -8,8 +8,6 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
 
     // MARK: - Internal Types
 
-    typealias ViewState = GridViewController.Model
-
     struct Section: Hashable {
         enum SectionType: Hashable {
             case top(UIColor)
@@ -21,9 +19,15 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
     }
 
     enum Item: Hashable {
-        case bestArticle(ViewState.Article)
-        case popularArticle(ViewState.Article)
-        case regularArticle(ViewState.Article)
+        struct Article: Hashable {
+            let title: String
+            let subtitle: String
+            let image: UIImage
+        }
+
+        case bestArticle(Article)
+        case popularArticle(Article)
+        case regularArticle(Article)
     }
 
     // MARK: - Internal Init
@@ -63,7 +67,6 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
         )
 
         let headerRegistration = registrationFactory.makeHeaderRegistration(dataSource: self)
-
         supplementaryViewProvider = { collectionView, type, indexPath in
             switch type {
             case UICollectionView.elementKindSectionHeader:
@@ -76,62 +79,117 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
             }
         }
 
+        setupSnapshot()
     }
 
     // MARK: - Internal Methods
 
-    func apply(_ sections: [ViewState], animated: Bool) {
+    func setupSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
 
-        let snapshotSections: [Section] = sections.map { section in
-            switch section {
-            case .top(let top):
-                return Section(
-                    type: .top(top.background),
-                    name: top.name
-                )
-            case .regular(let regular):
-                return Section(
-                    type: .regular(regular.background),
-                    name: regular.name
-                )
-            }
-        }
+        let topSection = Section(type: .top(.magenta), name: "Top")
+        let animalsSection = Section(type: .regular(.green), name: "Animals")
+        let travelSection = Section(type: .regular(.yellow), name: "Travel")
+
+        let snapshotSections: [Section] = [topSection, animalsSection, travelSection]
         snapshot.appendSections(snapshotSections)
 
-        for section in sections {
-            switch section {
-            case .top(let top):
-                let snapshotItems: [Item] = top.items.map {
-                    switch $0 {
-                    case .bestArticle(let article):
-                        return .bestArticle(article)
-                    case .popularArticle(let article):
-                        return .popularArticle(article)
-                    }
-                }
-                snapshot.appendItems(
-                    snapshotItems,
-                    toSection: Section(type: .top(top.background), name: top.name)
+        snapshot.appendItems(
+            [
+                .bestArticle(
+                    Item.Article(
+                        title: "Match of the Week",
+                        subtitle: "An instant classic with a dramatic finish",
+                        image: UIImage(systemName: "trophy.fill")!
+                    )
+                ),
+                .popularArticle(
+                    Item.Article(
+                        title: "Rising Stars to Watch",
+                        subtitle: "New names leading the scoreboard",
+                        image: UIImage(systemName: "star.fill")!
+                    )
+                ),
+                .popularArticle(
+                    Item.Article(
+                        title: "League Highlights",
+                        subtitle: "Top moments from the weekend",
+                        image: UIImage(systemName: "sparkles")!
+                    )
                 )
-            case .regular(let regular):
-                let snapshotItems: [Item] = regular.items.map {
-                    switch $0 {
-                    case .article(let article):
-                        return .regularArticle(article)
-                    }
-                }
-                snapshot.appendItems(
-                    snapshotItems,
-                    toSection: Section(type: .regular(regular.background), name: regular.name))
-            }
-        }
+            ],
+            toSection: topSection
+        )
 
-        if animated {
-            apply(snapshot, animatingDifferences: animated)
-        } else {
-            applySnapshotUsingReloadData(snapshot)
-        }
+        snapshot.appendItems(
+            [
+                .regularArticle(
+                    Item.Article(
+                        title: "Wildlife Rescue Stories",
+                        subtitle: "How volunteers help injured animals",
+                        image: UIImage(systemName: "pawprint.fill")!
+                    )
+                ),
+                .regularArticle(
+                    Item.Article(
+                        title: "Life in the Rainforest",
+                        subtitle: "The hidden world of canopy creatures",
+                        image: UIImage(systemName: "leaf.fill")!
+                    )
+                ),
+                .regularArticle(
+                    Item.Article(
+                        title: "Ocean Giants",
+                        subtitle: "Understanding whales and their migration",
+                        image: UIImage(systemName: "drop.fill")!
+                    )
+                )
+            ],
+            toSection: animalsSection
+        )
+
+        snapshot.appendItems(
+            [
+                .regularArticle(
+                    Item.Article(
+                        title: "Weekend in Lisbon",
+                        subtitle: "A guide to food, views, and trams",
+                        image: UIImage(systemName: "airplane")!
+                    )
+                ),
+                .regularArticle(
+                    Item.Article(
+                        title: "Mountain Escape",
+                        subtitle: "Best trails for first-time hikers",
+                        image: UIImage(systemName: "mountain.2.fill")!
+                    )
+                ),
+                .regularArticle(
+                    Item.Article(
+                        title: "City on Foot",
+                        subtitle: "Walking tours through historic streets",
+                        image: UIImage(systemName: "figure.walk")!
+                    )
+                ),
+                .regularArticle(
+                    Item.Article(
+                        title: "Island Hopping",
+                        subtitle: "Planning a stress-free ferry route",
+                        image: UIImage(systemName: "ferry.fill")!
+                    )
+                ),
+                .regularArticle(
+                    Item.Article(
+                        title: "Northern Lights",
+                        subtitle: "When and where to see the aurora",
+                        image: UIImage(systemName: "sparkle")!
+                    )
+                )
+            ],
+            toSection: travelSection
+        )
+
+        apply(snapshot, animatingDifferences: true)
     }
 
 }

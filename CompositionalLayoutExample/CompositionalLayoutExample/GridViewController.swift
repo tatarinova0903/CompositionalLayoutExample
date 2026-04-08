@@ -22,8 +22,6 @@ final class GridViewController: UIViewController {
         view.backgroundColor = .white
         setupLayout()
         configureCollectionView()
-
-        collectionViewDataSource.apply(.default, animated: true)
     }
 
     private func setupLayout() {
@@ -46,7 +44,6 @@ final class GridViewController: UIViewController {
         )
         collectionView.dataSource = collectionViewDataSource
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.decelerationRate = .fast
     }
 
 }
