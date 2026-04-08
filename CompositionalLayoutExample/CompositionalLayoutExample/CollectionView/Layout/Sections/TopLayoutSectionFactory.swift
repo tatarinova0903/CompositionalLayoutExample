@@ -1,7 +1,6 @@
 import UIKit
 
 enum TopLayoutSectionFactory {
-    @MainActor
     static func build() -> NSCollectionLayoutSection {
         // Items
         let largeItemSize = NSCollectionLayoutSize(

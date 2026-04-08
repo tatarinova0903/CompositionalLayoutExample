@@ -1,7 +1,7 @@
 import UIKit
 
 enum CollectionSectionFactory {
-    @MainActor
+
     static func build(from group: NSCollectionLayoutGroup) -> NSCollectionLayoutSection {
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = ItemsConstants.itemSpacing
@@ -14,7 +14,7 @@ enum CollectionSectionFactory {
         return section
     }
 
-    @MainActor
+    
     private static func buildHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
         let headerSize = NSCollectionLayoutSize(
             widthDimension: .absolute(ItemsConstants.itemWidth),

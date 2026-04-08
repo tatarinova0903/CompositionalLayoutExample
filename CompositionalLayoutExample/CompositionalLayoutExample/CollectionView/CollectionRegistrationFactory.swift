@@ -1,6 +1,5 @@
 import UIKit
 
-@MainActor
 struct CollectionRegistrationFactory {
 
     // MARK: - Internal Types
@@ -15,7 +14,7 @@ struct CollectionRegistrationFactory {
         UICollectionViewCell,
         ViewState.Article
     >
-    typealias CommonArticleCellRegistration = UICollectionView.CellRegistration<
+    typealias RegularArticleCellRegistration = UICollectionView.CellRegistration<
         UICollectionViewCell,
         ViewState.Article
     >
@@ -56,8 +55,8 @@ struct CollectionRegistrationFactory {
         }
     }
 
-    func makeCommonArticleCellRegistration() -> CommonArticleCellRegistration {
-        return CommonArticleCellRegistration { cell, _, item in
+    func makeRegularArticleCellRegistration() -> RegularArticleCellRegistration {
+        return RegularArticleCellRegistration { cell, _, item in
             configureArticleCell(
                 cell,
                 with: item,

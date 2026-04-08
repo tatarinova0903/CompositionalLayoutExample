@@ -24,7 +24,7 @@ final class CollectionLayout: UICollectionViewCompositionalLayout {
                 switch section?.type {
                 case .top:
                     return TopLayoutSectionFactory.build()
-                case .new:
+                case .regular:
                     return NewLayoutSectionFactory.build()
                 case .none:
                     return nil
@@ -79,7 +79,7 @@ final class CollectionLayout: UICollectionViewCompositionalLayout {
         }
         switch (elementKind, section.type) {
         case (SectionBackgroundView.elementKind, .top(let background)),
-            (SectionBackgroundView.elementKind, .new(let background)):
+            (SectionBackgroundView.elementKind, .regular(let background)):
             return getAttributesForStatisticSection(from: attr, with: background)
         default:
             return attr

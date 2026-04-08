@@ -13,7 +13,7 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
     struct Section: Hashable {
         enum SectionType: Hashable {
             case top(UIColor)
-            case new(UIColor)
+            case regular(UIColor)
         }
 
         let type: SectionType
@@ -23,7 +23,7 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
     enum Item: Hashable {
         case bestArticle(ViewState.Article)
         case popularArticle(ViewState.Article)
-        case commonArticle(ViewState.Article)
+        case regularArticle(ViewState.Article)
     }
 
     // MARK: - Internal Init
@@ -34,7 +34,7 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
     ) {
         let bestArticleCellRegistration = registrationFactory.makeBestArticleCellRegistration()
         let popularArticleCellRegistration = registrationFactory.makePopularArticleCellRegistration()
-        let commonArticleCellRegistration = registrationFactory.makeCommonArticleCellRegistration()
+        let regularArticleCellRegistration = registrationFactory.makeRegularArticleCellRegistration()
 
         super.init(
             collectionView: collectionView,
@@ -52,11 +52,11 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
                         for: indexPath,
                         item: popularArticle
                     )
-                case .commonArticle(let commonArticle):
+                case .regularArticle(let regularArticle):
                     return collectionView.dequeueConfiguredReusableCell(
-                        using: commonArticleCellRegistration,
+                        using: regularArticleCellRegistration,
                         for: indexPath,
-                        item: commonArticle
+                        item: regularArticle
                     )
                 }
             }
@@ -90,10 +90,10 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
                     type: .top(top.background),
                     name: top.name
                 )
-            case .new(let new):
+            case .regular(let regular):
                 return Section(
-                    type: .new(new.background),
-                    name: new.name
+                    type: .regular(regular.background),
+                    name: regular.name
                 )
             }
         }
@@ -114,16 +114,16 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
                     snapshotItems,
                     toSection: Section(type: .top(top.background), name: top.name)
                 )
-            case .new(let new):
-                let snapshotItems: [Item] = new.items.map {
+            case .regular(let regular):
+                let snapshotItems: [Item] = regular.items.map {
                     switch $0 {
                     case .article(let article):
-                        return .commonArticle(article)
+                        return .regularArticle(article)
                     }
                 }
                 snapshot.appendItems(
                     snapshotItems,
-                    toSection: Section(type: .new(new.background), name: new.name))
+                    toSection: Section(type: .regular(regular.background), name: regular.name))
             }
         }
 

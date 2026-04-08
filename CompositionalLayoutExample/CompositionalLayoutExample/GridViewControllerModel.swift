@@ -3,7 +3,7 @@ import UIKit
 extension GridViewController {
     enum Model {
         case top(Top)
-        case new(New)
+        case regular(Regular)
     }
 }
 
@@ -19,7 +19,7 @@ extension GridViewController.Model {
         let items: [Item]
     }
 
-    struct New {
+    struct Regular {
         enum Item {
             case article(Article)
         }
@@ -67,8 +67,8 @@ extension Array where Element == GridViewController.Model {
                 ]
             )
         ),
-        .new(
-            GridViewController.Model.New(
+        .regular(
+            GridViewController.Model.Regular(
                 name: "Animals",
                 background: .green,
                 items: [
@@ -96,8 +96,8 @@ extension Array where Element == GridViewController.Model {
                 ]
             )
         ),
-        .new(
-            GridViewController.Model.New(
+        .regular(
+            GridViewController.Model.Regular(
                 name: "Travel",
                 background: .yellow,
                 items: [
