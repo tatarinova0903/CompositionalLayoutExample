@@ -33,27 +33,20 @@ final class GridViewController: UIViewController {
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: Layout.collectionHeight)
+            collectionView.heightAnchor.constraint(equalToConstant: 300.0)
         ])
     }
 
     private func configureCollectionView() {
         collectionView.contentInset = UIEdgeInsets(
             top: 0,
-            left: Layout.horizontalContentInset,
+            left: 16.0,
             bottom: 0,
-            right: Layout.horizontalContentInset
+            right: 16.0
         )
         collectionView.dataSource = collectionViewDataSource
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.decelerationRate = .fast
     }
 
-}
-
-extension GridViewController {
-    private enum Layout {
-        static var collectionHeight: CGFloat { 300.0 }
-        static var horizontalContentInset: CGFloat { 16.0 }
-    }
 }
