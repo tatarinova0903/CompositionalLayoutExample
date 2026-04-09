@@ -1,12 +1,11 @@
 import UIKit
-import SwiftUI
 
 final class CollectionDataSource: UICollectionViewDiffableDataSource<
     CollectionDataSource.Section,
     CollectionDataSource.Item
 > {
 
-    // MARK: - Internal Types
+    // MARK: - Section and Item
 
     struct Section: Hashable {
         enum SectionType: Hashable {
@@ -30,7 +29,7 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
         case regularArticle(Article)
     }
 
-    // MARK: - Internal Init
+    // MARK: - Init
 
     init(
         collectionView: UICollectionView,
@@ -82,7 +81,7 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
         setupSnapshot()
     }
 
-    // MARK: - Internal Methods
+    // MARK: - Methods
 
     func setupSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()

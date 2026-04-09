@@ -2,26 +2,21 @@ import UIKit
 
 struct CollectionRegistrationFactory {
 
-    // MARK: - Internal Types
-
-    typealias DataSource = CollectionDataSource
     typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<SectionHeaderView>
     typealias BestArticleCellRegistration = UICollectionView.CellRegistration<
         UICollectionViewCell,
-        DataSource.Item.Article
+        CollectionDataSource.Item.Article
     >
     typealias PopularArticleCellRegistration = UICollectionView.CellRegistration<
         UICollectionViewCell,
-        DataSource.Item.Article
+        CollectionDataSource.Item.Article
     >
     typealias RegularArticleCellRegistration = UICollectionView.CellRegistration<
         UICollectionViewCell,
-        DataSource.Item.Article
+        CollectionDataSource.Item.Article
     >
 
-    // MARK: - Internal Methods
-
-    func makeHeaderRegistration(dataSource: DataSource) -> HeaderRegistration {
+    func makeHeaderRegistration(dataSource: CollectionDataSource) -> HeaderRegistration {
         return HeaderRegistration(
             elementKind: UICollectionView.elementKindSectionHeader
         ) { [weak dataSource] header, _, indexPath in
@@ -65,11 +60,9 @@ struct CollectionRegistrationFactory {
         }
     }
 
-    // MARK: - Private Methods
-
     private func configureArticleCell(
         _ cell: UICollectionViewCell,
-        with article: DataSource.Item.Article,
+        with article: CollectionDataSource.Item.Article,
         showsImage: Bool,
         showsSubtitle: Bool
     ) {

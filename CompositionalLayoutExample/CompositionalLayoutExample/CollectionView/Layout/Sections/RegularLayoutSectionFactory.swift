@@ -1,6 +1,6 @@
 import UIKit
 
-enum NewLayoutSectionFactory {
+enum RegularLayoutSectionFactory {
     static func build() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .absolute(ItemsConstants.itemWidth),

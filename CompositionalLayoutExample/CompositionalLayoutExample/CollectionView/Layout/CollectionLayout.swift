@@ -2,8 +2,7 @@ import UIKit
 
 final class CollectionLayout: UICollectionViewCompositionalLayout {
 
-    typealias DataSource = CollectionDataSource
-    typealias SectionProvider = (Int) -> DataSource.Section?
+    typealias SectionProvider = (_ sectionIndex: Int) -> CollectionDataSource.Section?
 
     private let sectionProvider: SectionProvider
 
@@ -23,7 +22,7 @@ final class CollectionLayout: UICollectionViewCompositionalLayout {
                 case .top:
                     return TopLayoutSectionFactory.build()
                 case .regular:
-                    return NewLayoutSectionFactory.build()
+                    return RegularLayoutSectionFactory.build()
                 case .none:
                     return nil
                 }
