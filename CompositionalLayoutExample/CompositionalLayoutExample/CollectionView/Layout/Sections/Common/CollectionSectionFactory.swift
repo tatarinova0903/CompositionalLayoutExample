@@ -14,7 +14,6 @@ enum CollectionSectionFactory {
         return section
     }
 
-    
     private static func buildHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
         let headerSize = NSCollectionLayoutSize(
             widthDimension: .absolute(ItemsConstants.itemWidth),

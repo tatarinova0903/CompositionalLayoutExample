@@ -1,27 +1,6 @@
 import UIKit
 
 final class SectionHeaderView: UICollectionReusableView {
-
-    // MARK: - Internal Init
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupUI()
-    }
-
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    // MARK: - Internal Methods
-
-    func configure(with title: String) {
-        titleLabel.text = title
-    }
-
-    // MARK: - Private Properties
-
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -30,9 +9,8 @@ final class SectionHeaderView: UICollectionReusableView {
         return label
     }()
 
-    // MARK: - Private Methods
-
-    private func setupUI() {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         addSubview(titleLabel)
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
@@ -40,5 +18,14 @@ final class SectionHeaderView: UICollectionReusableView {
             titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             titleLabel.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor)
         ])
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func configure(with title: String) {
+        titleLabel.text = title
     }
 }
