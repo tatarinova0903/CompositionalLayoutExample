@@ -2,27 +2,16 @@ import UIKit
 
 final class RegularArticleCollectionViewCell: UICollectionViewCell {
     func configure(
-        with article: CollectionDataSource.Item.Article,
-        showsImage: Bool,
-        showsSubtitle: Bool
+        with article: CollectionDataSource.Item.Article
     ) {
-        var contentConfiguration: UIListContentConfiguration = showsSubtitle
-            ? .subtitleCell()
-            : .cell()
+        var contentConfiguration: UIListContentConfiguration = .cell()
 
         contentConfiguration.text = article.title
-        contentConfiguration.textProperties.numberOfLines = 2
+        contentConfiguration.textProperties.numberOfLines = 3
 
-        if showsSubtitle {
-            contentConfiguration.secondaryText = article.subtitle
-            contentConfiguration.secondaryTextProperties.numberOfLines = 2
-        }
-
-        if showsImage {
-            contentConfiguration.image = article.image
-            contentConfiguration.imageProperties.maximumSize = CGSize(width: 48.0, height: 48.0)
-            contentConfiguration.imageProperties.cornerRadius = 6.0
-        }
+        contentConfiguration.image = article.image
+        contentConfiguration.imageProperties.maximumSize = CGSize(width: 48.0, height: 48.0)
+        contentConfiguration.imageProperties.cornerRadius = 6.0
 
         self.contentConfiguration = contentConfiguration
 

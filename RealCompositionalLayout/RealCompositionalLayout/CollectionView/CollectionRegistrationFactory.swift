@@ -29,31 +29,19 @@ struct CollectionRegistrationFactory {
 
     func makeBestArticleCellRegistration() -> BestArticleCellRegistration {
         return BestArticleCellRegistration { cell, _, item in
-            cell.configure(
-                with: item,
-                showsImage: true,
-                showsSubtitle: true
-            )
+            cell.configure(with: item)
         }
     }
 
     func makePopularArticleCellRegistration() -> PopularArticleCellRegistration {
         return PopularArticleCellRegistration { cell, _, item in
-            cell.configure(
-                with: item,
-                showsImage: true,
-                showsSubtitle: true
-            )
+            cell.configure(with: item)
         }
     }
 
     func makeRegularArticleCellRegistration() -> RegularArticleCellRegistration {
         return RegularArticleCellRegistration { cell, _, item in
-            cell.configure(
-                with: item,
-                showsImage: true,
-                showsSubtitle: true
-            )
+            cell.configure(with: item)
         }
     }
 }

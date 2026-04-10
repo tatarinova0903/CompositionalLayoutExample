@@ -19,8 +19,8 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
 
     enum Item: Hashable {
         struct Article: Hashable {
+            let sphere: String
             let title: String
-            let subtitle: String
             let image: UIImage
         }
 
@@ -86,9 +86,9 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
     func setupSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
 
-        let topSection = Section(type: .top(.magenta), name: "Top")
-        let animalsSection = Section(type: .regular(.green), name: "Animals")
-        let travelSection = Section(type: .regular(.yellow), name: "Travel")
+        let topSection = Section(type: .top(.magenta), name: "Popular Today")
+        let animalsSection = Section(type: .regular(.green), name: "Recommended to Read")
+        let travelSection = Section(type: .regular(.yellow), name: "Lifestyle")
 
         let snapshotSections: [Section] = [topSection, animalsSection, travelSection]
         snapshot.appendSections(snapshotSections)
@@ -97,23 +97,23 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
             [
                 .bestArticle(
                     Item.Article(
-                        title: "Match of the Week",
-                        subtitle: "An instant classic with a dramatic finish",
+                        sphere: "Psychology",
+                        title: "Why Your Brain Sabotages Your Goals",
                         image: UIImage(systemName: "trophy.fill")!
                     )
                 ),
                 .popularArticle(
                     Item.Article(
-                        title: "Rising Stars to Watch",
-                        subtitle: "New names leading the scoreboard",
-                        image: UIImage(systemName: "star.fill")!
+                        sphere: "Astrophysics",
+                        title: "Dark Matter: 50 Years of Searching",
+                        image: UIImage(systemName: "trophy.fill")!
                     )
                 ),
                 .popularArticle(
                     Item.Article(
-                        title: "League Highlights",
-                        subtitle: "Top moments from the weekend",
-                        image: UIImage(systemName: "sparkles")!
+                        sphere: "Medicine",
+                        title: "How Gut Microbiome Controls Your Mood",
+                        image: UIImage(systemName: "trophy.fill")!
                     )
                 )
             ],
@@ -124,23 +124,23 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
             [
                 .regularArticle(
                     Item.Article(
-                        title: "Wildlife Rescue Stories",
-                        subtitle: "How volunteers help injured animals",
-                        image: UIImage(systemName: "pawprint.fill")!
+                        sphere: "Architecture",
+                        title: "Architecture of Future Cities",
+                        image: UIImage(systemName: "trophy.fill")!
                     )
                 ),
                 .regularArticle(
                     Item.Article(
-                        title: "Life in the Rainforest",
-                        subtitle: "The hidden world of canopy creatures",
-                        image: UIImage(systemName: "leaf.fill")!
+                        sphere: "Business",
+                        title: "Why Better Products Lose the Market",
+                        image: UIImage(systemName: "trophy.fill")!
                     )
                 ),
                 .regularArticle(
                     Item.Article(
-                        title: "Ocean Giants",
-                        subtitle: "Understanding whales and their migration",
-                        image: UIImage(systemName: "drop.fill")!
+                        sphere: "IT",
+                        title: "Quantum Computers vs Classic Encryption",
+                        image: UIImage(systemName: "trophy.fill")!
                     )
                 )
             ],
@@ -151,37 +151,37 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
             [
                 .regularArticle(
                     Item.Article(
-                        title: "Weekend in Lisbon",
-                        subtitle: "A guide to food, views, and trams",
-                        image: UIImage(systemName: "airplane")!
+                        sphere: "Sociology",
+                        title: "Loneliness as an Epidemic of XXI Century",
+                        image: UIImage(systemName: "trophy.fill")!
                     )
                 ),
                 .regularArticle(
                     Item.Article(
-                        title: "Mountain Escape",
-                        subtitle: "Best trails for first-time hikers",
-                        image: UIImage(systemName: "mountain.2.fill")!
+                        sphere: "Ecology",
+                        title: "How Climate Change Rewrites Wine Maps",
+                        image: UIImage(systemName: "trophy.fill")!
                     )
                 ),
                 .regularArticle(
                     Item.Article(
-                        title: "City on Foot",
-                        subtitle: "Walking tours through historic streets",
-                        image: UIImage(systemName: "figure.walk")!
+                        sphere: "Health",
+                        title: "Sleep as a Superpower: 8 Hours Inside",
+                        image: UIImage(systemName: "trophy.fill")!
                     )
                 ),
                 .regularArticle(
                     Item.Article(
-                        title: "Island Hopping",
-                        subtitle: "Planning a stress-free ferry route",
-                        image: UIImage(systemName: "ferry.fill")!
+                        sphere: "Psychology",
+                        title: "Why We Forgot How to Be Bored",
+                        image: UIImage(systemName: "trophy.fill")!
                     )
                 ),
                 .regularArticle(
                     Item.Article(
-                        title: "Northern Lights",
-                        subtitle: "When and where to see the aurora",
-                        image: UIImage(systemName: "sparkle")!
+                        sphere: "Medicine",
+                        title: "The Silent Threat of Chronic Inflammation",
+                        image: UIImage(systemName: "trophy.fill")!
                     )
                 )
             ],
