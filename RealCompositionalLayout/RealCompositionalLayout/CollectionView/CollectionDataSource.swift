@@ -18,12 +18,6 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
     }
 
     enum Item: Hashable {
-        struct Article: Hashable {
-            let sphere: String
-            let title: String
-            let image: UIImage
-        }
-
         case bestArticle(Article)
         case popularArticle(Article)
         case regularArticle(Article)
@@ -96,24 +90,24 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
         snapshot.appendItems(
             [
                 .bestArticle(
-                    Item.Article(
+                    Article(
                         sphere: "Psychology",
                         title: "Why Your Brain Sabotages Your Goals",
-                        image: UIImage(systemName: "trophy.fill")!
+                        image: .brain
                     )
                 ),
                 .popularArticle(
-                    Item.Article(
+                    Article(
                         sphere: "Astrophysics",
                         title: "Dark Matter: 50 Years of Searching",
-                        image: UIImage(systemName: "trophy.fill")!
+                        image: .brain
                     )
                 ),
                 .popularArticle(
-                    Item.Article(
+                    Article(
                         sphere: "Medicine",
                         title: "How Gut Microbiome Controls Your Mood",
-                        image: UIImage(systemName: "trophy.fill")!
+                        image: .brain
                     )
                 )
             ],
@@ -123,24 +117,24 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
         snapshot.appendItems(
             [
                 .regularArticle(
-                    Item.Article(
+                    Article(
                         sphere: "Architecture",
                         title: "Architecture of Future Cities",
-                        image: UIImage(systemName: "trophy.fill")!
+                        image: .brain
                     )
                 ),
                 .regularArticle(
-                    Item.Article(
+                    Article(
                         sphere: "Business",
                         title: "Why Better Products Lose the Market",
-                        image: UIImage(systemName: "trophy.fill")!
+                        image: .brain
                     )
                 ),
                 .regularArticle(
-                    Item.Article(
+                    Article(
                         sphere: "IT",
                         title: "Quantum Computers vs Classic Encryption",
-                        image: UIImage(systemName: "trophy.fill")!
+                        image: .brain
                     )
                 )
             ],
@@ -150,38 +144,38 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
         snapshot.appendItems(
             [
                 .regularArticle(
-                    Item.Article(
+                    Article(
                         sphere: "Sociology",
                         title: "Loneliness as an Epidemic of XXI Century",
-                        image: UIImage(systemName: "trophy.fill")!
+                        image: .brain
                     )
                 ),
                 .regularArticle(
-                    Item.Article(
+                    Article(
                         sphere: "Ecology",
                         title: "How Climate Change Rewrites Wine Maps",
-                        image: UIImage(systemName: "trophy.fill")!
+                        image: .brain
                     )
                 ),
                 .regularArticle(
-                    Item.Article(
+                    Article(
                         sphere: "Health",
                         title: "Sleep as a Superpower: 8 Hours Inside",
-                        image: UIImage(systemName: "trophy.fill")!
+                        image: .brain
                     )
                 ),
                 .regularArticle(
-                    Item.Article(
+                    Article(
                         sphere: "Psychology",
                         title: "Why We Forgot How to Be Bored",
-                        image: UIImage(systemName: "trophy.fill")!
+                        image: .brain
                     )
                 ),
                 .regularArticle(
-                    Item.Article(
+                    Article(
                         sphere: "Medicine",
                         title: "The Silent Threat of Chronic Inflammation",
-                        image: UIImage(systemName: "trophy.fill")!
+                        image: .brain
                     )
                 )
             ],

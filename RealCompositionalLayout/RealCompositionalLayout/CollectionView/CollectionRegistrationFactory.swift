@@ -5,15 +5,15 @@ struct CollectionRegistrationFactory {
     typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<SectionHeaderView>
     typealias BestArticleCellRegistration = UICollectionView.CellRegistration<
         BestArticleCollectionViewCell,
-        CollectionDataSource.Item.Article
+        Article
     >
     typealias PopularArticleCellRegistration = UICollectionView.CellRegistration<
         PopularArticleCollectionViewCell,
-        CollectionDataSource.Item.Article
+        Article
     >
     typealias RegularArticleCellRegistration = UICollectionView.CellRegistration<
         RegularArticleCollectionViewCell,
-        CollectionDataSource.Item.Article
+        Article
     >
 
     func makeHeaderRegistration(dataSource: CollectionDataSource) -> HeaderRegistration {
