@@ -80,9 +80,9 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
     func setupSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
 
-        let popularSection = Section(type: .top(.magenta), name: "Popular Today")
-        let travelSection = Section(type: .regular(.yellow), name: "Travel")
-        let foodSection = Section(type: .regular(.green), name: "Food")
+        let popularSection = Section(type: .top(.lightOrange), name: "Popular Today")
+        let travelSection = Section(type: .regular(.lightBlue), name: "Travel")
+        let foodSection = Section(type: .regular(.lightGreen), name: "Food")
 
         let snapshotSections: [Section] = [popularSection, travelSection, foodSection]
         snapshot.appendSections(snapshotSections)
@@ -141,14 +141,14 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
                     Article(
                         sphere: "Travel",
                         title: "Hidden Gems: 10 Underrated Destinations You Need to Visit",
-                        image: .brain
+                        image: .travel1
                     )
                 ),
                 .regularArticle(
                     Article(
                         sphere: "Travel",
                         title: "Solo Travel Guide: How to Explore the World on Your Own",
-                        image: .brain
+                        image: .travel2
                     )
                 ),
                 .regularArticle(

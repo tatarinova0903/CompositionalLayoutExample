@@ -4,6 +4,15 @@ final class SectionBackgroundView: UICollectionReusableView {
 
     static let elementKind = String(reflecting: SectionBackgroundView.self)
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.layer.cornerRadius = 16.0
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         guard let attrs = layoutAttributes as? SectionBackgroundLayoutAttributes,

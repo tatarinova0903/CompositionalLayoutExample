@@ -35,12 +35,12 @@ extension CollectionSectionFactory {
     private typealias ItemsConstants = CommonCollectionLayoutItemsConstants
 
     private enum SectionConstants {
-        static var sectionHeaderHeight: CGFloat { 28.0 }
+        static var sectionHeaderHeight: CGFloat { 56.0 }
         static let sectionContentInsets = NSDirectionalEdgeInsets(
             top: sectionHeaderHeight,
-            leading: 0.0,
-            bottom: 0.0,
-            trailing: 0.0
+            leading: 16.0,
+            bottom: 16.0,
+            trailing: 16.0
         )
     }
 

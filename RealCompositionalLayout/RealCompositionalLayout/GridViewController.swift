@@ -31,7 +31,7 @@ final class GridViewController: UIViewController {
             collectionView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: 300.0)
+            collectionView.heightAnchor.constraint(equalToConstant: 400.0)
         ])
     }
 

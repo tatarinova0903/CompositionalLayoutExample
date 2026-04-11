@@ -35,6 +35,7 @@ private struct PopularArticleView: View {
                     .font(.title3)
                     .fontWeight(.bold)
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding()
         .background {
