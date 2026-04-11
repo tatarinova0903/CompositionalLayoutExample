@@ -6,12 +6,13 @@ final class BestArticleCollectionViewCell: UICollectionViewCell {
         with article: Article
     ) {
         contentConfiguration = UIHostingConfiguration {
-            BestArticleCollectionView(article: article)
+            BestArticleView(article: article)
         }
+        .margins(.all, 0.0)
     }
 }
 
-private struct BestArticleCollectionView: View {
+private struct BestArticleView: View {
 
     let article: Article
 
@@ -45,6 +46,9 @@ private struct BestArticleCollectionView: View {
             Image(article.image)
                 .resizable()
                 .scaledToFill()
+                .overlay {
+                    LinearGradient(colors: [.clear, .black.opacity(0.6)], startPoint: .top, endPoint: .bottom)
+                }
         }
         .clipShape(RoundedRectangle(cornerRadius: 16.0))
     }

@@ -80,11 +80,11 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
     func setupSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
 
-        let topSection = Section(type: .top(.magenta), name: "Popular Today")
-        let animalsSection = Section(type: .regular(.green), name: "Recommended to Read")
-        let travelSection = Section(type: .regular(.yellow), name: "Lifestyle")
+        let popularSection = Section(type: .top(.magenta), name: "Popular Today")
+        let travelSection = Section(type: .regular(.yellow), name: "Travel")
+        let foodSection = Section(type: .regular(.green), name: "Food")
 
-        let snapshotSections: [Section] = [topSection, animalsSection, travelSection]
+        let snapshotSections: [Section] = [popularSection, travelSection, foodSection]
         snapshot.appendSections(snapshotSections)
 
         snapshot.appendItems(
@@ -100,86 +100,128 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
                     Article(
                         sphere: "Astrophysics",
                         title: "Dark Matter: 50 Years of Searching",
-                        image: .brain
+                        image: .cosmos
                     )
                 ),
                 .popularArticle(
                     Article(
                         sphere: "Medicine",
                         title: "How Gut Microbiome Controls Your Mood",
-                        image: .brain
+                        image: .gut
                     )
-                )
-            ],
-            toSection: topSection
-        )
-
-        snapshot.appendItems(
-            [
-                .regularArticle(
+                ),
+                .bestArticle(
                     Article(
                         sphere: "Architecture",
                         title: "Architecture of Future Cities",
-                        image: .brain
+                        image: .architecture
                     )
                 ),
-                .regularArticle(
+                .popularArticle(
                     Article(
                         sphere: "Business",
                         title: "Why Better Products Lose the Market",
-                        image: .brain
+                        image: .marketing
                     )
                 ),
-                .regularArticle(
+                .popularArticle(
                     Article(
                         sphere: "IT",
                         title: "Quantum Computers vs Classic Encryption",
-                        image: .brain
+                        image: .it
                     )
                 )
             ],
-            toSection: animalsSection
+            toSection: popularSection
         )
 
         snapshot.appendItems(
             [
                 .regularArticle(
                     Article(
-                        sphere: "Sociology",
-                        title: "Loneliness as an Epidemic of XXI Century",
+                        sphere: "Travel",
+                        title: "Hidden Gems: 10 Underrated Destinations You Need to Visit",
                         image: .brain
                     )
                 ),
                 .regularArticle(
                     Article(
-                        sphere: "Ecology",
-                        title: "How Climate Change Rewrites Wine Maps",
+                        sphere: "Travel",
+                        title: "Solo Travel Guide: How to Explore the World on Your Own",
                         image: .brain
                     )
                 ),
                 .regularArticle(
                     Article(
-                        sphere: "Health",
-                        title: "Sleep as a Superpower: 8 Hours Inside",
+                        sphere: "Travel",
+                        title: "Budget Travel Hacks: See More, Spend Less",
                         image: .brain
                     )
                 ),
                 .regularArticle(
                     Article(
-                        sphere: "Psychology",
-                        title: "Why We Forgot How to Be Bored",
+                        sphere: "Travel",
+                        title: "Off the Beaten Path: Adventures Beyond Tourist Traps",
                         image: .brain
                     )
                 ),
                 .regularArticle(
                     Article(
-                        sphere: "Medicine",
-                        title: "The Silent Threat of Chronic Inflammation",
+                        sphere: "Travel",
+                        title: "The Art of Slow Travel: Why Less Is More",
                         image: .brain
                     )
                 )
             ],
             toSection: travelSection
+        )
+
+        snapshot.appendItems(
+            [
+                .regularArticle(
+                    Article(
+                        sphere: "Food",
+                        title: "Street Food Around the World: The Ultimate Guide",
+                        image: .brain
+                    )
+                ),
+                .regularArticle(
+                    Article(
+                        sphere: "Food",
+                        title: "Farm to Table: Why Local Food Tastes Better",
+                        image: .brain
+                    )
+                ),
+                .regularArticle(
+                    Article(
+                        sphere: "Food",
+                        title: "The Art of Fermentation: Ancient Techniques for Modern Kitchens",
+                        image: .brain
+                    )
+                ),
+                .regularArticle(
+                    Article(
+                        sphere: "Food",
+                        title: "Plant-Based Diet: How to Make the Switch Without Sacrificing Taste",
+                        image: .brain
+                    )
+                ),
+                .regularArticle(
+                    Article(
+                        sphere: "Food",
+                        title: "Secret Ingredients: What Top Chefs Never Tell You",
+                        image: .brain
+                    )
+                ),
+                .regularArticle(
+                    Article(
+                        sphere: "Food",
+                        title: "Food Tourism: The Best Culinary Destinations in the World",
+                        image: .brain
+                    )
+                )
+            ],
+            toSection: foodSection
         )
 
         apply(snapshot, animatingDifferences: true)
