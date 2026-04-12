@@ -1,3 +1,5 @@
+[Medium Article Link](https://medium.com/@daratatarinova11/mastering-uicollectionviewcompositionallayout-74434a83c27f)
+
 # CompositionalLayoutExample
 
 ![image](img/example.png)
