@@ -1,5 +1,6 @@
 import UIKit
 
+@MainActor
 enum CollectionSectionFactory {
 
     static func build(from group: NSCollectionLayoutGroup) -> NSCollectionLayoutSection {

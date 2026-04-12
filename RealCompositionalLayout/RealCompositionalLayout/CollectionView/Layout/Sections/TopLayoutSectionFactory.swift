@@ -1,5 +1,6 @@
 import UIKit
 
+@MainActor
 enum TopLayoutSectionFactory {
     static func build() -> NSCollectionLayoutSection {
         // Items

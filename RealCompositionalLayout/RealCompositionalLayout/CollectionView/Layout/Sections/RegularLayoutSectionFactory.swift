@@ -1,5 +1,6 @@
 import UIKit
 
+@MainActor
 enum RegularLayoutSectionFactory {
     static func build() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(

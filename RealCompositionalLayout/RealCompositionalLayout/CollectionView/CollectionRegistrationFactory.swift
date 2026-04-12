@@ -1,5 +1,6 @@
 import UIKit
 
+@MainActor
 struct CollectionRegistrationFactory {
 
     typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<SectionHeaderView>
