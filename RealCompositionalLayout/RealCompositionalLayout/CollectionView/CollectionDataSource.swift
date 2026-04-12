@@ -155,21 +155,21 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
                     Article(
                         sphere: "Travel",
                         title: "Budget Travel Hacks: See More, Spend Less",
-                        image: .brain
+                        image: .travel3
                     )
                 ),
                 .regularArticle(
                     Article(
                         sphere: "Travel",
                         title: "Off the Beaten Path: Adventures Beyond Tourist Traps",
-                        image: .brain
+                        image: .travel4
                     )
                 ),
                 .regularArticle(
                     Article(
                         sphere: "Travel",
                         title: "The Art of Slow Travel: Why Less Is More",
-                        image: .brain
+                        image: .travel5
                     )
                 )
             ],
@@ -182,42 +182,42 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
                     Article(
                         sphere: "Food",
                         title: "Street Food Around the World: The Ultimate Guide",
-                        image: .brain
+                        image: .streetFood
                     )
                 ),
                 .regularArticle(
                     Article(
                         sphere: "Food",
                         title: "Farm to Table: Why Local Food Tastes Better",
-                        image: .brain
+                        image: .farm
                     )
                 ),
                 .regularArticle(
                     Article(
                         sphere: "Food",
                         title: "The Art of Fermentation: Ancient Techniques for Modern Kitchens",
-                        image: .brain
+                        image: .fermentation
                     )
                 ),
                 .regularArticle(
                     Article(
                         sphere: "Food",
                         title: "Plant-Based Diet: How to Make the Switch Without Sacrificing Taste",
-                        image: .brain
+                        image: .diet
                     )
                 ),
                 .regularArticle(
                     Article(
                         sphere: "Food",
                         title: "Secret Ingredients: What Top Chefs Never Tell You",
-                        image: .brain
+                        image: .chef
                     )
                 ),
                 .regularArticle(
                     Article(
                         sphere: "Food",
                         title: "Food Tourism: The Best Culinary Destinations in the World",
-                        image: .brain
+                        image: .foodTravel
                     )
                 )
             ],
