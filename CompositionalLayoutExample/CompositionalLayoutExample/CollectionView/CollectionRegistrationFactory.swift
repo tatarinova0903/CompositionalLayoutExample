@@ -1,17 +1,10 @@
 import UIKit
 
+@MainActor
 struct CollectionRegistrationFactory {
 
     typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<SectionHeaderView>
-    typealias BestArticleCellRegistration = UICollectionView.CellRegistration<
-        UICollectionViewCell,
-        CollectionDataSource.Item.Article
-    >
-    typealias PopularArticleCellRegistration = UICollectionView.CellRegistration<
-        UICollectionViewCell,
-        CollectionDataSource.Item.Article
-    >
-    typealias RegularArticleCellRegistration = UICollectionView.CellRegistration<
+    typealias CellRegistration = UICollectionView.CellRegistration<
         UICollectionViewCell,
         CollectionDataSource.Item.Article
     >
@@ -27,8 +20,8 @@ struct CollectionRegistrationFactory {
         }
     }
 
-    func makeBestArticleCellRegistration() -> BestArticleCellRegistration {
-        return BestArticleCellRegistration { cell, _, item in
+    func makeBestArticleCellRegistration() -> CellRegistration {
+        return CellRegistration { cell, _, item in
             configureArticleCell(
                 cell,
                 with: item,
@@ -38,8 +31,8 @@ struct CollectionRegistrationFactory {
         }
     }
 
-    func makePopularArticleCellRegistration() -> PopularArticleCellRegistration {
-        return PopularArticleCellRegistration { cell, _, item in
+    func makePopularArticleCellRegistration() -> CellRegistration {
+        return CellRegistration { cell, _, item in
             configureArticleCell(
                 cell,
                 with: item,
@@ -49,8 +42,8 @@ struct CollectionRegistrationFactory {
         }
     }
 
-    func makeRegularArticleCellRegistration() -> RegularArticleCellRegistration {
-        return RegularArticleCellRegistration { cell, _, item in
+    func makeRegularArticleCellRegistration() -> CellRegistration {
+        return CellRegistration { cell, _, item in
             configureArticleCell(
                 cell,
                 with: item,
@@ -81,7 +74,6 @@ struct CollectionRegistrationFactory {
         if showsImage {
             contentConfiguration.image = article.image
             contentConfiguration.imageProperties.maximumSize = CGSize(width: 48.0, height: 48.0)
-            contentConfiguration.imageProperties.cornerRadius = 6.0
         }
 
         cell.contentConfiguration = contentConfiguration

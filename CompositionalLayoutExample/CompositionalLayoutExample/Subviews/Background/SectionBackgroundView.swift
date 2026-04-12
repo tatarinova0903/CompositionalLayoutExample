@@ -18,6 +18,8 @@ final class SectionBackgroundView: UICollectionReusableView {
 // MARK: - UICollectionViewLayoutAttributes
 
 final class SectionBackgroundLayoutAttributes: UICollectionViewLayoutAttributes {
+    // The nonisolated(unsafe) modifier is required in Swift 6
+    // to suppress concurrency warnings for this stored property.
     nonisolated(unsafe) var color: UIColor?
 
     override func copy() -> Any {

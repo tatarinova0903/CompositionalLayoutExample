@@ -62,16 +62,15 @@ final class CollectionLayout: UICollectionViewCompositionalLayout {
         guard let section = sectionProvider(attr.indexPath.section) else {
             return attr
         }
-        switch (elementKind, section.type) {
-        case (SectionBackgroundView.elementKind, .top(let background)),
-            (SectionBackgroundView.elementKind, .regular(let background)):
-            return getAttributesForStatisticSection(from: attr, with: background)
+        switch (elementKind, section.bgColor) {
+        case (SectionBackgroundView.elementKind, let background):
+            return getAttributesForSection(from: attr, with: background)
         default:
             return attr
         }
     }
 
-    private func getAttributesForStatisticSection(
+    private func getAttributesForSection(
         from attr: UICollectionViewLayoutAttributes,
         with backgroundColor: UIColor
     ) -> SectionBackgroundLayoutAttributes {

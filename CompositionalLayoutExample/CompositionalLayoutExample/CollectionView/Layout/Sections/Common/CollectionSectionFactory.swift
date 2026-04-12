@@ -1,5 +1,6 @@
 import UIKit
 
+@MainActor
 enum CollectionSectionFactory {
 
     static func build(from group: NSCollectionLayoutGroup) -> NSCollectionLayoutSection {
@@ -10,6 +11,11 @@ enum CollectionSectionFactory {
         let headerElement = buildHeader()
         section.boundarySupplementaryItems = [headerElement]
         section.supplementaryContentInsetsReference = .none
+
+        let sectionBackground = NSCollectionLayoutDecorationItem.background(
+            elementKind: SectionBackgroundView.elementKind
+        )
+        section.decorationItems = [sectionBackground]
 
         return section
     }

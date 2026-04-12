@@ -9,12 +9,13 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
 
     struct Section: Hashable {
         enum SectionType: Hashable {
-            case top(UIColor)
-            case regular(UIColor)
+            case top
+            case regular
         }
 
         let type: SectionType
         let name: String
+        let bgColor: UIColor
     }
 
     enum Item: Hashable {
@@ -86,9 +87,9 @@ final class CollectionDataSource: UICollectionViewDiffableDataSource<
     func setupSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
 
-        let topSection = Section(type: .top(.magenta), name: "Top")
-        let animalsSection = Section(type: .regular(.green), name: "Animals")
-        let travelSection = Section(type: .regular(.yellow), name: "Travel")
+        let topSection = Section(type: .top, name: "Top", bgColor: .magenta)
+        let animalsSection = Section(type: .regular, name: "Animals", bgColor: .green)
+        let travelSection = Section(type: .regular, name: "Travel", bgColor: .yellow)
 
         let snapshotSections: [Section] = [topSection, animalsSection, travelSection]
         snapshot.appendSections(snapshotSections)

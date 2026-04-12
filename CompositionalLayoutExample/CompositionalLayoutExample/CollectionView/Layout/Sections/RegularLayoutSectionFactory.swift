@@ -1,5 +1,6 @@
 import UIKit
 
+@MainActor
 enum RegularLayoutSectionFactory {
     static func build() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
@@ -20,11 +21,6 @@ enum RegularLayoutSectionFactory {
         group.interItemSpacing = .fixed(ItemsConstants.itemSpacing)
 
         let section = CollectionSectionFactory.build(from: group)
-
-        let sectionBackground = NSCollectionLayoutDecorationItem.background(
-            elementKind: SectionBackgroundView.elementKind
-        )
-        section.decorationItems = [sectionBackground]
 
         return section
     }
